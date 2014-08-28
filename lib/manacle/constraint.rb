@@ -2,10 +2,6 @@ require 'manacle/constraint/actuator/base'
 require 'manacle/constraint/actuator/nested'
 
 module Manacle
-  # Include this, and magically each of your decorators will get a time
-  # attached, as well as delegation to all the modules contained therein.
-  #
-  # You can then override the parts of Time you want to change.
   module Constraint
     module InstanceMethods
 
@@ -51,7 +47,7 @@ module Manacle
         end
         proxy_class.new(self)
       end
-      
+
       def klass
         @actuator.constrain.class
       end
