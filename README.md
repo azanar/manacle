@@ -17,7 +17,9 @@ Quick Start
 
 A common situation is to want to constrain a Time object in some way or another.
 
-For example, say you want a Time value to always snap to the beginning of the day. You could create a Manacle like follows:
+For example, say you want a Time value to always snap to the beginning of the day.
+
+### Defining the manacle
 
 ```ruby
 require 'manacle/constraint/method'
@@ -41,34 +43,54 @@ module Manacle
 end
 ```
 
-You'd then be able to use this manacle in your code as follows:
+### Using the manacle
 
 ```ruby
 time = Time.now
-puts "Time in your timezone is #{time.to_s}"
+puts "1. Time in your timezone is #{time.to_s}"
 
 # Manacle is applied here
 bod = Manacle::Examples::BeginningOfDay.new(time).proxy
-puts "Manacled time at beginning of the day is #{bod.to_s}"
+puts "2. Manacled time at beginning of the day is #{bod.to_s}"
 
 bod_plus_one_hour = bod + 60*60
-puts "Manacled time at BOD + 1 hour is #{bod_plus_one_hour.to_s}"
+puts "3. Manacled time at BOD + 1 hour is #{bod_plus_one_hour.to_s}"
 
 bod_plus_one_day = bod + 24*60*60
-puts "Manacled time in BOD + 1 day is #{bod_plus_one_day.to_s}"
+puts "4. Manacled time in BOD + 1 day is #{bod_plus_one_day.to_s}"
 
 bod_plus_25_hours = bod + 25*60*60
-puts "Manacled time in BOD + 25 hours is #{bod_plus_25_hours.to_s}"
+puts "5. Manacled time in BOD + 25 hours is #{bod_plus_25_hours.to_s}"
+```
+
+
+If the time was `2014-08-27 21:42:21 -0700`, this would print:
+
+```
+1. Time in your timezone is 2014-08-27 21:42:21 -0700
+2. Manacled time at beginning of the day is 2014-08-27 00:00:00 -0700
+3. Manacled time at BOD + 1 hour is 2014-08-27 00:00:00 -0700
+4. Manacled time in BOD + 1 day is 2014-08-28 00:00:00 -0700
+5. Manacled time in BOD + 25 hours is 2014-08-28 00:00:00 -0700
+```
+
+### Unconstraining
+
+This time is now constrained forever to be beginning of the day. Unless you don't want it to be.
+
+You can unmanacle any object, by calling `#unconstrain`. From the example above:
+
+```rb
+unproxy = bod.unconstrain
+unproxy_plus_one_hour = unproxy + 60*60
+
+puts "Unmanacled time + 1 hour is #{unproxy_plus_one_hour.to_s}"
 ```
 
 This would print:
 
 ```
-Time in your timezone is 2014-08-27 21:42:21 -0700
-Manacled time at beginning of the day is 2014-08-27 00:00:00 -0700
-Manacled time at BOD + 1 hour is 2014-08-27 00:00:00 -0700
-Manacled time in BOD + 1 day is 2014-08-28 00:00:00 -0700
-Manacled time in BOD + 25 hours is 2014-08-28 00:00:00 -0700
+Unmanacled time + 1 hour is 2014-08-27 22:58:33 -0700
 ```
 
 API Documentation
