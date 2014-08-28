@@ -11,8 +11,6 @@ class Manacle::Constraint::Actuator::BaseTest < Test::Unit::TestCase
 
   end
 
-  puts Test::Unit::TestCase.method(:test).inspect
-
   test '#constrain uncached' do
 
     mock_constrained = mock
