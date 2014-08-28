@@ -7,7 +7,7 @@ class Manacle::ConstraintTest < Test::Unit::TestCase
     @mock_constrainable = Class.new do
 
       def self.constrainables
-        [ActiveSupport::TimeWithZone, ::Time, ::Date] 
+        [ActiveSupport::TimeWithZone, ::Time, ::Date]
       end
 
       include Manacle::Constraint
@@ -25,8 +25,8 @@ class Manacle::ConstraintTest < Test::Unit::TestCase
   end
 
   class ClassMethodsTest < self
-    test '.proxy' do
-      m = @mock_constrainable.proxy(@mock_obj)
+    test '.constrain' do
+      m = @mock_constrainable.constrain(@mock_obj)
     end
   end
 
@@ -45,6 +45,33 @@ class Manacle::ConstraintTest < Test::Unit::TestCase
       @mock_constraint = mock
 
       @constraint.constraint = @mock_constraint
+    end
+
+    test "#proxy" do
+      mock_proxy_klass = mock
+      mock_proxy_klass.expects(:kind_of?).with(Class).returns(true)
+      
+      mock_proxy_instance = mock
+
+      mock_proxy_klass.expects(:new).with(@constraint).returns(mock_proxy_instance)
+
+      @mock_actuator.expects(:proxy).returns(mock_proxy_klass)
+
+      res = @constraint.proxy
+
+      assert_equal res, mock_proxy_instance
+    end
+
+    test "#proxy not found" do
+      mock_proxy_klass = mock
+      mock_proxy_klass.expects(:kind_of?).with(Class).returns(false)
+
+      @mock_actuator.expects(:proxy).returns(mock_proxy_klass)
+      @mock_actuator.expects(:levels).returns([])
+
+      assert_raises do
+        @constraint.proxy
+      end
     end
 
     test "#klass" do

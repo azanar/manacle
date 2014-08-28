@@ -58,7 +58,7 @@ module Manacle
     end
 
     module ClassMethods
-      def proxy(klass)
+      def constrain(klass)
         self.new(klass).proxy
       end
     end
