@@ -1,5 +1,5 @@
 module Manacle
-  class Proxy
+  module Proxy
     module Method
       def initialize(name)
         @name = name

@@ -1,5 +1,5 @@
 module Manacle
-  class Proxy
+  module Proxy
     module InstanceMethods
       def inspect
         "#<Manacle::Proxy::#{self.class} #<Manacle::Constraint::#{@constraint.class} #{@constraint.inspect}>"

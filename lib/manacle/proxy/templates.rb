@@ -5,7 +5,7 @@ require 'punchout/matcher/class'
 require 'manacle/proxy/template/factory'
 
 module Manacle
-  class Proxy
+  module Proxy
     module Templates
       class Factory
         def initialize
@@ -21,7 +21,7 @@ module Manacle
       end
 
       extend Punchout::Fabricable
-      
+
       module_function
 
       def factory

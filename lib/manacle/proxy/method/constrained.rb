@@ -1,7 +1,7 @@
 require 'manacle/proxy/method'
 
 module Manacle
-  class Proxy
+  module Proxy
     module Method
       class Constrained
         class Postprocessor

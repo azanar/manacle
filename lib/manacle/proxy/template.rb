@@ -5,7 +5,7 @@ require 'manacle/proxy/method/constrained'
 require 'manacle/proxy/method/unconstrained'
 
 module Manacle
-  class Proxy
+  module Proxy
     class Template
       def self.cut(klass)
         Class.new do |k|

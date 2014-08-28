@@ -1,6 +1,6 @@
 require 'manacle/proxy/template'
 module Manacle
-  class Proxy
+  module Proxy
     class Factory
       def initialize(constraint)
         @constraint = constraint

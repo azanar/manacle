@@ -1,7 +1,7 @@
 require 'manacle/proxy/template'
 
 module Manacle
-  class Proxy
+  module Proxy
     class Template
       class Factory
         def initialize 
