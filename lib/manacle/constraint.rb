@@ -15,10 +15,10 @@ module Manacle
         end
 
         @actuator = if obj.class < Actuator
-          obj
-        else
-          Actuator.build(obj, self)
-        end
+                      obj
+                    else
+                      Actuator.build(obj, self)
+                    end
       end
 
       attr_reader :actuator
@@ -57,9 +57,16 @@ module Manacle
       end
     end
 
+    module ClassMethods
+      def proxy(klass)
+        self.new(klass).proxy
+      end
+    end
+
     def self.included(base)
-      base.instance_eval do
+      base.instance_exec do
         include InstanceMethods
+        extend ClassMethods
       end
     end
   end
