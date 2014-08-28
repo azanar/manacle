@@ -14,8 +14,7 @@ Gem::Specification.new do |s|
   s.license     = "MIT"
 
   s.authors     = ["Ed Carrel"]
-  s.email       = ["ed@pocketchange.com"]
-  
+  s.email       = ["edward@carrel.org"]
 
   s.files       = Pathname.glob('lib/**/*.rb').map(&:to_path)
   s.files       += Pathname.glob('test/**/*.rb').map(&:to_path)
