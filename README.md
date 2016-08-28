@@ -1,16 +1,22 @@
-manacle
-=======
 [![Gem Version](https://badge.fury.io/rb/manacle.png)](http://badge.fury.io/rb/manacle)
 [![Build Status](https://travis-ci.org/azanar/manacle.png?branch=master)](https://travis-ci.org/azanar/manacle)
 [![Code Climate](https://codeclimate.com/github/azanar/manacle.png)](https://codeclimate.com/github/azanar/manacle)
 [![Coverage Status](https://coveralls.io/repos/azanar/manacle/badge.png?branch=master)](https://coveralls.io/r/azanar/manacle?branch=master)
 [![Dependency Status](https://gemnasium.com/azanar/manacle.png)](https://gemnasium.com/azanar/manacle)
 
-Want to have a variable in your program be constrained, even as you modify and use it?
+manacle
+=======
 
-Strap a Manacle to it!
+Manacle is a library for the creation of 'sticky' constraints.
 
-Manacle is a framework for the creation of 'sticky' constraints.
+What is a 'sticky' constraint?
+============================
+
+Say you changing pricing a product, and always want the price to end with 99. 
+
+Typically, when you modify the price, you'll have to redo the calculation to make it end in 99.
+
+A 'sticky' constraint means you have to declare your intent once, and the price enforces its own constraint as you make changes, even changes that would otherwise make it not end in 99.
 
 Quick Start
 ===========
