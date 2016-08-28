@@ -16,13 +16,13 @@ module Manacle
           end
           private :proxied_klass
 
-          methods = klass.instance_methods.reject {|m| 
-            [:inspect, :new, :class].include?(m) 
-          }.map {|m| 
-            Method::Constrained.new(m) 
-          } + 
-          Manacle::Constraint::InstanceMethods.instance_methods.map {|m| 
-            Method::Unconstrained.new(m) 
+          methods = klass.instance_methods.reject {|m|
+            [:inspect, :new, :class].include?(m)
+          }.map {|m|
+            Method::Constrained.new(m)
+          } +
+          Manacle::Constraint::InstanceMethods.instance_methods.map {|m|
+            Method::Unconstrained.new(m)
           }
 
 

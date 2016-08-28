@@ -1,5 +1,6 @@
 require File.expand_path('../test_helper', __FILE__)
 
+require 'active_support'
 require 'active_support/core_ext'
 require 'date'
 require 'manacle/constraint/method'

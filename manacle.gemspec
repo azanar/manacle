@@ -2,7 +2,7 @@ require 'pathname'
 
 Gem::Specification.new do |s|
   s.name        = "manacle"
-  s.version     = "0.1.1"
+  s.version     = "0.3.0"
   s.summary     = "A sticky constraint gem"
 
   s.description = <<-EOF
@@ -15,11 +15,13 @@ Gem::Specification.new do |s|
 
   s.authors     = ["Ed Carrel"]
   s.email       = ["edward@carrel.org"]
+  s.homepage    = "https://github.com/azanar/manacle"
+
 
   s.files       = Pathname.glob('lib/**/*.rb').map(&:to_path)
-  s.files       += Pathname.glob('test/**/*.rb').map(&:to_path)
+  #s.files       += Pathname.glob('test/**/*.rb').map(&:to_path)
 
-  s.add_runtime_dependency 'punchout'
+  s.add_runtime_dependency 'punchout', '~> 0'
 
   s.add_development_dependency 'test-unit'
   s.add_development_dependency 'activesupport'

@@ -1,5 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
+require 'active_support/duration'
 require 'manacle/proxy'
 
 class Manacle::ProxyTest < Test::Unit::TestCase
