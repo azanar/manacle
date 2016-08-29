@@ -112,6 +112,6 @@ See [Contributing](CONTRIBUTING.md) for details.
 License
 -------
 
-&copy;2014 Ed Carrel. Released under the MIT License.
+&copy;2016 Ed Carrel. Released under the MIT License.
 
 See [License](LICENSE) for details.
